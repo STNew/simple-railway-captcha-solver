@@ -101,11 +101,14 @@ def generate(GENNUM, SAVEPATH, ENGP=25, FIVEP=0, ENGNOLIMIT=False, filename="tra
             newtext.draw(image=captcha)
             offset = newtext.next_offset
             captchastr += str(newtext.letter)
+        if len(captchastr) <=5:
+            captchastr+='*'
         letterlist.append([str(index).zfill(len(str(GENNUM))), captchastr])
         lenlist.append([str(index).zfill(len(str(GENNUM))), captchalen])
         for obj in rectlist:
             obj.draw(image=captcha, overlay=True)
         captcha.convert("RGB").save(SAVEPATH + str(index).zfill(len(str(GENNUM))) + ".jpg", "JPEG")
+
     writer = csv.writer(captchacsv)
     writer.writerows(letterlist)
     writer = csv.writer(lencsv)
@@ -115,9 +118,9 @@ def generate(GENNUM, SAVEPATH, ENGP=25, FIVEP=0, ENGNOLIMIT=False, filename="tra
 
 
 if __name__ == "__main__":
-    generate(50000, "./data/56_imitate_train_set/",  ENGP=100, FIVEP=50, ENGNOLIMIT=True, filename="train")
-    generate(10240, "./data/56_imitate_vali_set/",  ENGP=100, FIVEP=50, ENGNOLIMIT=True, filename="vali")
-    generate(50000, "./data/5_imitate_train_set/",  ENGP=100, FIVEP=100, ENGNOLIMIT=True, filename="train")
-    generate(10240, "./data/5_imitate_vali_set/",  ENGP=100, FIVEP=100, ENGNOLIMIT=True, filename="vali")
-    generate(50000, "./data/6_imitate_train_set/",  ENGP=100, FIVEP=0, ENGNOLIMIT=True, filename="train")
-    generate(10240, "./data/6_imitate_vali_set/",  ENGP=100, FIVEP=0, ENGNOLIMIT=True, filename="vali")
+    generate(10000, "./data/56_imitate_train_set/",  ENGP=100, FIVEP=50, ENGNOLIMIT=True, filename="train") #原50000
+    generate(5120, "./data/56_imitate_vali_set/",  ENGP=100, FIVEP=50, ENGNOLIMIT=True, filename="vali")   #原10240
+#     generate(10000, "./data/5_imitate_train_set/",  ENGP=100, FIVEP=100, ENGNOLIMIT=True, filename="train") #原50000
+#     generate(5120, "./data/5_imitate_vali_set/",  ENGP=100, FIVEP=100, ENGNOLIMIT=True, filename="vali")
+#     generate(10000, "./data/6_imitate_train_set/",  ENGP=100, FIVEP=0, ENGNOLIMIT=True, filename="train") #原50000
+#     generate(5120, "./data/6_imitate_vali_set/",  ENGP=100, FIVEP=0, ENGNOLIMIT=True, filename="vali")
