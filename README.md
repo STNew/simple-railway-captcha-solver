@@ -27,12 +27,12 @@ digit5_acc: 0.9976
 digit6_acc: 0.9992
 
 驗證資料準確率：
-	val_digit1_acc: 0.9952 
-	val_digit2_acc: 0.9896 
-	val_digit3_acc: 0.8706
-	val_digit4_acc: 0.9100 
-	val_digit5_acc: 0.9736 
-	val_digit6_acc: 0.9916
+val_digit1_acc: 0.9952 
+val_digit2_acc: 0.9896 
+val_digit3_acc: 0.8706
+val_digit4_acc: 0.9100 
+val_digit5_acc: 0.9736 
+val_digit6_acc: 0.9916
 
 目前未以官方資料進行測試
 
